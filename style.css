@@ -1,9 +1,19 @@
+body {
+	background-image: url("images/background.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%;
+}
+
 @media (max-width: 768px) {
-  .container {
-    padding-left: -15px;
-    padding-right: -15px;
-	margin-left: auto;
-  	margin-right: auto;
+  body {
+    background: rgb(11, 87, 188); /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(rgb(11, 87, 188), rgb(64, 233, 255)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgb(11, 87, 188), rgb(64, 233, 255)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgb(11, 87, 188), rgb(64, 233, 255)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(rgb(11, 87, 188), rgb(64, 233, 255)); /* Standard syntax */ 
   }
 }
 
@@ -12,15 +22,6 @@
   margin-right: 0px;
   padding-left: 0px;
   margin-left: 0px;
-}
-
-body {
-	background-image: url("images/background.jpg");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
-	height: 100%;
 }
 
 h2 {
@@ -132,7 +133,7 @@ small {
 .jumbotron h2 {
 	color: black;
 	font-family: cursive;
-	font-size: 5vw;
+	font-size: 7vw;
 	text-shadow: 0px 0px 25px white;
 }
 
