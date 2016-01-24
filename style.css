@@ -15,6 +15,10 @@ body {
     background: -moz-linear-gradient(rgb(11, 87, 188), rgb(64, 233, 255)); /* For Firefox 3.6 to 15 */
     background: linear-gradient(rgb(11, 87, 188), rgb(64, 233, 255)); /* Standard syntax */ 
   }
+	.jumbotron h2 { 
+		font-size: 9vw;
+	}
+	
 }
 
 .row {
