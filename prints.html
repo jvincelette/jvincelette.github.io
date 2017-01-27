@@ -4,13 +4,16 @@
 		<title>Prints</title>
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="script.js"></script>
+
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href=style.css>
 	</head>
 
-	<body>
+	<body ng-app="gallery" ng-controller="myCtrl" ng-init="type = 'prints'">
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
@@ -60,37 +63,12 @@
 	</div>
 
 	<div class="container img-rounded bottom-buffer">
-		<div class="row top-buffer">
-			<div class="col-sm-6"><img class="img-thumbnail center-block" src="images/prints/charlottesweb.jpg"/></div>
-			<div class="col-sm-6"><img class="img-thumbnail center-block" src="images/prints/lordoftheflies.jpg"/></div>
-		</div>	
-
-		<div class="row top-buffer">
-			<div class="col-sm-4"><img class="img-thumbnail center-block" src="images/prints/hunchbackofnotredame.jpg"/></div>
-			<div class="col-sm-4"><img class="img-thumbnail center-block" src="images/prints/lionthewitchandthewardrobe.jpg"/></div>
-			<div class="col-sm-4"><img class="img-thumbnail center-block" src="images/prints/mobydick.jpg"/></div>
+		<div ng-repeat="row in data[type]" class="row top-buffer">
+			<div ng-repeat="piece in row" class="col-sm-{{piece.columns}} col-xs-offset-{{piece.offset}}">
+				<img class="img-thumbnail" ng-src="https://kwoc-manager.herokuapp.com/{{type}}/{{piece.fileName}}"/>
+				<h3 class="text-center reduced-top">{{piece.title}}</h3>
+			</div>
 		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-6"><img class="img-thumbnail center-block" src="images/prints/oneflewoverthecuckoosnest.jpg"/></div>
-			<div class="col-sm-6"><img class="img-thumbnail center-block" src="images/prints/lesmiserables.jpg"/></div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-4"><img class="img-thumbnail center-block" src="images/prints/olivertwist.jpg"/></div>
-			<div class="col-sm-4"><img class="img-thumbnail center-block" src="images/prints/wizardofoz.jpg"/></div>
-			<div class="col-sm-2"></div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8"><img class="img-thumbnail center-block" src="images/prints/waterforelephants.jpg"/></div>
-			<div class="col-sm-2"></div>
-		</div>
-
-	</a>
-
 	</div>
 
 	</body>

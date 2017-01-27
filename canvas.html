@@ -4,13 +4,16 @@
 		<title>Canvas</title>
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="script.js"></script>
+
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href=style.css>
 	</head>
 
-	<body>
+	<body ng-app="gallery" ng-controller="myCtrl" ng-init="type = 'canvas'">
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
@@ -60,222 +63,12 @@
 	</div>
 
 	<div class="container img-rounded bottom-buffer">
-	<div class="row top-buffer">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<img class="img-thumbnail" src="images/canvas/beach3piece.jpg"/>
-				<h3 class="text-center reduced-top">Three Panel Caribbean Beach</h3>
-			</div>
-			<div class="col-sm-1"></div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/xmasBeachSnowman.jpg"/>
-				<h3 class="text-center reduced-top">Christmas on the Beach</h3>
-			</div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/snowmenBeach.jpg"/>
-				<h3 class="text-center reduced-top">Christmas Love on the Beach</h3>
+		<div ng-repeat="row in data[type]" class="row top-buffer">
+			<div ng-repeat="piece in row" class="col-sm-{{piece.columns}} col-xs-offset-{{piece.offset}}">
+				<img class="img-thumbnail" ng-src="https://kwoc-manager.herokuapp.com/{{type}}/{{piece.fileName}}"/>
+				<h3 class="text-center reduced-top">{{piece.title}}</h3>
 			</div>
 		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/beachLighthouse.jpg"/>
-				<h3 class="text-center reduced-top">Lighthouse in Distance</h3>
-			</div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/love3piece.jpg"/>
-				<h3 class="text-center reduced-top">Signs of Love</h3>
-			</div>
-		</div>	
-
-		<div class="row top-buffer">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/beach4piece.jpg"/>
-				<h3 class="text-center reduced-top">Beach Highlights</h3>
-			</div>
-			<div class="col-sm-3"></div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<img class="img-thumbnail" src="images/canvas/boston.jpg"/>
-				<h3 class="text-center reduced-top">Boston Skyline</h3>
-			</div>
-			<div class="col-sm-1"></div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/gooseberry.jpg"/>
-				<h3 class="text-center reduced-top">Gooseberry Island, Westport</h3>
-			</div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/gooseberry2.jpg"/>
-				<h3 class="text-center reduced-top">Gooseberry Tower, Westport</h3>
-			</div>
-		</div>	
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/hotairballoon.jpg"/>
-				<h3 class="text-center reduced-top">Balloons in Flight</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/fallFoliage.jpg"/>
-				<h3 class="text-center reduced-top">Fall Foliage</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/lighthouse.jpg"/>
-				<h3 class="text-center reduced-top">Cliff Lighthouse</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/lighthouseXmas.jpg"/>
-				<h3 class="text-center reduced-top">Christmas Wreath Lighthouse</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/lighthouseBeachLong.jpg"/>
-				<h3 class="text-center reduced-top">Beach Lighthouse Reflection</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/xmasLighthouse.jpg"/>
-				<h3 class="text-center reduced-top">Glowing Wreath Lighthouse</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/lighthouseMoon.jpg"/>
-				<h3 class="text-center reduced-top">Moon Lighthouse</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/winterSunset.jpg"/>
-				<h3 class="text-center reduced-top">Sunset in Woods</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/lighthouseNight.jpg"/>
-				<h3 class="text-center reduced-top">Moon Reflection Lighthouse</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<img class="img-thumbnail" src="images/canvas/winter3piece.jpg"/>
-				<h3 class="text-center reduced-top">Three Panel Sunset Lake</h3>
-			</div>
-			<div class="col-sm-1"></div>
-		</div>	
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/whaleJump.jpg"/>
-				<h3 class="text-center reduced-top">Sunset Breach</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/winterSunset3.jpg"/>
-				<h3 class="text-center reduced-top">Warmth in the Woods</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/whaleTail.jpg"/>
-				<h3 class="text-center reduced-top">Sailing Surprise</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/apple.jpg"/>
-				<h3 class="text-center reduced-top">Apple</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/cat.jpg"/>	
-				<h3 class="text-center reduced-top">Peek-a-boo Kitten</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/appleHeart.jpg"/>
-				<h3 class="text-center reduced-top">Apple Heart</h3>
-			</div>
-		</div>
-			
-		<div class="row top-buffer">
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/lakesunset2piece.jpg"/>
-				<h3 class="text-center reduced-top">Sunset Lake</h3>
-			</div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/winterSunset2.jpg"/>
-				<h3 class="text-center reduced-top">Pink Meadow</h3>
-			</div>
-		</div>
-			
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/moose.jpg"/>
-				<h3 class="text-center reduced-top">Maine Moose</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/westportRiver.jpg"/>
-				<h3 class="text-center reduced-top">Westport River</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/horse.jpg"/>
-				<h3 class="text-center reduced-top">White Stallion</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-1"></div>
-			<div class="col-sm-10">
-				<img class="img-thumbnail" src="images/canvas/mountain3piece.jpg"/>
-				<h3 class="text-center reduced-top">Vibrant Mountains</h3>
-			</div>
-			<div class="col-sm-1"></div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-3">
-				<img class="img-thumbnail" src="images/canvas/oceanMoonAbstract.jpg"/>
-				<h3 class="text-center reduced-top">Moon Vortex</h3>
-			</div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/beachSunsetAbstract.jpg"/>
-				<h3 class="text-center reduced-top">Caribbean Sun Vortex</h3>	
-			</div>
-			<div class="col-sm-3">
-				<img class="img-thumbnail" src="images/canvas/oceanMoon.jpg"/>
-				<h3 class="text-center reduced-top">Full Moon at the Beach</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-3">
-				<img class="img-thumbnail" src="images/canvas/snowman.jpg"/>
-				<h3 class="text-center reduced-top">Snowman</h3>
-			</div>
-			<div class="col-sm-6">
-				<img class="img-thumbnail" src="images/canvas/winter.jpg"/>
-				<h3 class="text-center reduced-top">Seaside Winter</h3>
-			</div>
-			<div class="col-sm-3">
-				<img class="img-thumbnail" src="images/canvas/loveletter4piece.jpg"/>
-				<h3 class="text-center reduced-top">Love Letters</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-4"></div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/canvas/paris.jpg"/>
-				<h3 class="text-center reduced-top">Paris at Dusk</h3>
-			</div>
-			<div class="col-sm-4"></div>
 	</div>
 		
 

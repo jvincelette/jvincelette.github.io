@@ -4,13 +4,16 @@
 		<title>Ornaments</title>
 		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="script.js"></script>
+
   		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href=style.css>
 	</head>
 
-	<body>
+	<body ng-app="gallery" ng-controller="myCtrl" ng-init="type = 'ornaments'">
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
@@ -60,94 +63,13 @@
 	</div>
 
 	<div class="container img-rounded bottom-buffer">
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/beachSnowmanOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Snowman in Paradise #1</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/snowmenOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Snow Couple in the Mountains</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/beachSnowmanOrnament2.jpg"/>
-				<h3 class="text-center reduced-top">Snowman in Paradise #2</h3>
+		<div ng-repeat="row in data[type]" class="row top-buffer">
+			<div ng-repeat="piece in row" class="col-sm-{{piece.columns}} col-xs-offset-{{piece.offset}}">
+				<img class="img-thumbnail" ng-src="https://kwoc-manager.herokuapp.com/{{type}}/{{piece.fileName}}"/>
+				<h3 class="text-center reduced-top">{{piece.title}}</h3>
 			</div>
 		</div>
-	
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/beachOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Palm Tree #1</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/landOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Country Lake</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/beachOrnament2.jpg"/>
-				<h3 class="text-center reduced-top">Palm Tree #2</h3>
-			</div>
-		</div>		
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/birdsOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Christmas Bluebirds</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/penguinOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Winter Penguin</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/birdsOrnament2.jpg"/>
-				<h3 class="text-center reduced-top">Mistletoe Love Birds</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/landOrnament2.jpg"/>
-				<h3 class="text-center reduced-top">Winter Seaside</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/mooseOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Moose Sunrise</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/winterOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Purple Winter Lake</h3>
-			</div>
-		</div>
-
-		<div class="row top-buffer">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/lighthouseOrnament3.jpg"/>
-				<h3 class="text-center reduced-top">Summer Lighthouse</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/lighthouseOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Winter Lighthouse</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail" src="images/ornaments/lighthouseOrnament2.jpg"/>
-				<h3 class="text-center reduced-top">Cliff Lighthouse</h3>
-			</div>
-		</div>
-
-
-		<div class="row top-buffer">
-			<div class="col-sm-2"></div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail center-block" src="images/ornaments/snowmanSunsetOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Snowman at Dusk</h3>
-			</div>
-			<div class="col-sm-4">
-				<img class="img-thumbnail center-block" src="images/ornaments/treeOrnament.jpg"/>
-				<h3 class="text-center reduced-top">Glowing Christmas Tree</h3>
-			</div>
-			<div class="col-sm-2"></div>
-		</div>		
+	</div>
 
 	</body>
 </html>	
