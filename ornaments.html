@@ -63,13 +63,13 @@
 	</div>
 
 	<div class="container img-rounded bottom-buffer">
-    <div ng-if="!data" class="col-sm-2 col-xs-offset-5" id="loading">
+    <div ng-if="!data" class="col-sm-2 col-sm-offset-5" id="loading">
       <br><br>
       <div class="loader"></div>
       <span>One moment...</span><br><br>
     </div>
 		<div ng-repeat="row in data[type]" class="row top-buffer">
-			<div ng-repeat="piece in row" class="col-sm-{{piece.columns}} col-xs-offset-{{piece.offset}}">
+			<div ng-repeat="piece in row" class="col-sm-{{piece.columns}} col-sm-offset-{{piece.offset}}">
 				<img class="img-thumbnail" ng-src="https://kwoc-manager.herokuapp.com/{{type}}/{{piece.fileName}}"/>
 				<h3 class="text-center reduced-top">{{piece.title}}</h3>
 			</div>
